@@ -1,19 +1,36 @@
+def exceed_allowance(data_gb):
+    return data_gb > 10
+
 def main():
-    monthlydata = int(input("enter gb:"))
-    baseplan = int(input("cost:"))
+    Monthlydata = float(input("enter data used (gb): "))
+    Baseplan = float(input("enter the base plan cost: "))
 
-   
-    if monthlydata <= 10:
-        print("within limit:[40]")
-    elif monthlydata >= 10:
-        print("within limit:[40]")
-    elif monthlydata < 10 + 5:
-        print("moderatelyover limit:[40]")
-    elif monthlydata < 15 + .5:
-        print("over the limt:[50]")
+    if exceed_allowance(Monthlydata):
+        overage = Monthlydata - 10
+        print(f"you are{overage:.1f}gb over the limit ")
+
+        if overage <= 5:
+            print("Moderate extra usage ")
+        
+        else:
+            print("high extra usage")
+          
+        Total = Baseplan + overage * 2
+
     else:
-        print("exessively over limit")
+        print("within data limit ")
+        Total = Baseplan
+       
+    print(f"total bill is: ${Total:.2f}")
 
+    
 main()
+    
+
+
+
+    
+
+
 
     
